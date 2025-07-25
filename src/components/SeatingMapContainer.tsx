@@ -45,7 +45,7 @@ export const SeatingMapContainer = () => {
         </select>
       </label>
 
-      <div className="w-full h-[90vh] flex bg-white md:flex-row flex-col">
+      <div className="w-full h-[85vh] flex bg-white md:flex-row flex-col">
         <SeatingMap ticketMap={ticketMap} />
         <div className="md:absolute md:right-8 md:bottom-4 flex flex-row justify-center mb-8 ml-2">
           {selectedShow ? (

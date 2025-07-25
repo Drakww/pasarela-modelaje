@@ -7,7 +7,7 @@ export const SeatingMapContainer = () => {
   const [selectedShow, setSelectedShow] = useState<string | null>(null);
   const [ticketMap, setTicketMap] = useState<any>({});
   useEffect(() => {
-    fetch("https://script.google.com/macros/s/AKfycbwwgZZXZnKJjfMC0hgOpkGtoUYnVPqFRJ34_LHJam8NQQLhKiTNadmuFX7RUrbtdGmp/exec")
+    fetch("https://script.google.com/macros/s/AKfycbwSSxxTRnpZp4lx20_6JCEkg9jVdG0FOcdcOS_uqsJQEyN6wKPn4o90OG2D_RZx-NZJ/exec")
       .then((res) => res.json())
       .then((data) => {
         const { seats, extras } = data;

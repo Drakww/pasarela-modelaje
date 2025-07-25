@@ -28,23 +28,25 @@ export const SeatingMapContainer = () => {
 
 
   return (
+    <div>
+      <div className="py-4 flex flex-col items-center md:gap-4 bg-black">
+        <label className="md:p-0 text-white font-semibold bebas text-2xl">
+          Select Show (Day - Hour):
+          <select
+            value={selectedShow || ""}
+            onChange={handleChange}
+            className="ml-2 px-2 py-1 rounded bg-white md:bg-black text-black md:text-white border border-white bebas text-xl"
+          >
+            {Object.keys(allData.seats || {}).map((showKey) => (
+              <option key={showKey} value={showKey}>
+                {showKey}
+              </option>
+            ))}
+          </select>
+        </label>
 
-    <div className="flex flex-col items-center md:gap-4 bg-black">
-      <label className="p-3 md:p-0 text-white font-semibold bebas text-2xl">
-        Select Show (Day - Hour):
-        <select
-          value={selectedShow || ""}
-          onChange={handleChange}
-          className="ml-2 px-2 py-1 rounded bg-white md:bg-black text-black md:text-white border border-white bebas text-xl"
-        >
-          {Object.keys(allData.seats || {}).map((showKey) => (
-            <option key={showKey} value={showKey}>
-              {showKey}
-            </option>
-          ))}
-        </select>
-      </label>
-
+      </div>
+      
       <div className="w-full h-[90vh] flex bg-white md:flex-row flex-col">
         <SeatingMap ticketMap={ticketMap} />
         <div className="md:absolute md:right-8 md:bottom-4 flex flex-row justify-center mb-8 ml-2">
@@ -54,6 +56,6 @@ export const SeatingMapContainer = () => {
 
         </div>
       </div>
-    </div>
+    </div> 
   );
 };

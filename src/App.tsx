@@ -3,7 +3,7 @@ import { SeatingMapContainer } from "./components/SeatingMapContainer";
 
 function App() {
   return (
-    <div className="md:bg-black md:p-6 ">
+    <div className="w-full h-screen">
       <SeatingMapContainer />
     </div>
   );

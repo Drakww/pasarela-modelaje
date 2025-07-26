@@ -45,7 +45,7 @@ export const SeatingMapContainer = () => {
           if (hoursForFirstDay.length > 0) {
             const firstHour = sortHours(hoursForFirstDay)[0];
             setSelectedHour(firstHour);
-            setTicketMap(seats[`${firstDay} - ${firstHour}`] || {});
+            setTicketMap(seats[`${firstDay} - ${firstHour}`]);
             // console.log(`Mapa inicial cargado para: ${firstDay} - ${firstHour}`, seats[`${firstDay} - ${firstHour}`]); // Depuración
           } else {
             setTicketMap({});

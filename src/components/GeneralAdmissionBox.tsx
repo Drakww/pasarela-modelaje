@@ -1,9 +1,11 @@
 import React from "react";
 
 const categoryColors: Record<string, string> = {
-  Tickets: "#3498db",
-  PR: "#e67e22",
-  Operations: "#2ecc71",
+  // "Tickets Sales": "#fb1500ff",
+  // "Vip/Celebridades": "#fb1500ff",
+  // Sponsor: "#fb1500ff",
+  // Influencers: "#fb1500ff",
+  // "Press Magazines": "#fb1500ff"
 };
 
 interface GeneralAdmissionBoxProps {

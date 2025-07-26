@@ -50,7 +50,7 @@ export const SeatingMap: React.FC<SeatingMapProps> = ({ ticketMap }) => {
 
       {/* Legend */}
       <div className="md:absolute md:top-[50%] md:left-14">
-        <Legend />
+        <Legend ticketMap={ticketMap}/>
       </div>
 
       {/* General Admission Box */}

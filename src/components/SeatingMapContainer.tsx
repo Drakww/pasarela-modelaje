@@ -156,50 +156,60 @@ export const SeatingMapContainer = () => {
 
   return (
     <div>
-      <div className="py-4 flex flex-col md:flex-row items-center justify-center md:gap-4 bg-black">
-        {/* Selector de Días */}
-        <label className="md:p-0 text-white font-semibold bebas text-2xl mb-2 md:mb-0">
-          Select Day:
-          <select
-            value={selectedDay || ""}
-            onChange={handleDayChange}
-            className="ml-2 px-2 py-1 rounded bg-white md:bg-black text-black md:text-white border border-white bebas text-xl"
-          >
-            <option value="" disabled>Seleccionar día</option>
-            {availableDays.map((day) => (
-              <option key={day} value={day}>
-                {day}
-              </option>
-            ))}
-          </select>
-        </label>
+      {/* Nuevo contenedor para el título y los selectores */}
+      <div className="pt-2 pb-4 bg-black flex flex-col items-center justify-center">
+        {/* --- Título ahora está fuera del flex-row de los selectores --- */}
+        <h2 className="text-white font-bold bebas text-3xl mb-2 text-center">
+          RUNWAY - SEATING CHART
+        </h2>
 
-        {/* Selector de Horas (Solo se muestra si se ha seleccionado un día) */}
-        {selectedDay && (
-          <label className="md:p-0 text-white font-semibold bebas text-2xl">
-            Select Hour:
+        {/* Contenedor específico para los selectores, ahora con flex-row solo para ellos */}
+        <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 w-full px-4">
+          {/* Selector de Días */}
+          <label className="md:p-0 text-white font-semibold bebas text-2xl mb-2 md:mb-0">
+            Select Day:
             <select
-              value={selectedHour || ""}
-              onChange={handleHourChange}
+              value={selectedDay || ""}
+              onChange={handleDayChange}
               className="ml-2 px-2 py-1 rounded bg-white md:bg-black text-black md:text-white border border-white bebas text-xl"
-              disabled={availableHoursForSelectedDay.length === 0}
             >
-              <option value="" disabled>Seleccionar hora</option>
-              {availableHoursForSelectedDay.length > 0 ? (
-                availableHoursForSelectedDay.map((hour) => (
-                  <option key={hour} value={hour}>
-                    {hour}
-                  </option>
-                ))
-              ) : (
-                <option value="" disabled>No hay horas disponibles</option>
-              )}
+              <option value="" disabled>Seleccionar día</option>
+              {availableDays.map((day) => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
             </select>
           </label>
-        )}
-      </div>
 
-      <div className="w-full h-[90vh] flex bg-white md:flex-row flex-col">
+          {/* Selector de Horas (Solo se muestra si se ha seleccionado un día) */}
+          {selectedDay && (
+            <label className="md:p-0 text-white font-semibold bebas text-2xl">
+              Select Hour:
+              <select
+                value={selectedHour || ""}
+                onChange={handleHourChange}
+                className="ml-2 px-2 py-1 rounded bg-white md:bg-black text-black md:text-white border border-white bebas text-xl"
+                disabled={availableHoursForSelectedDay.length === 0}
+              >
+                <option value="" disabled>Seleccionar hora</option>
+                {availableHoursForSelectedDay.length > 0 ? (
+                  availableHoursForSelectedDay.map((hour) => (
+                    <option key={hour} value={hour}>
+                      {hour}
+                    </option>
+                  ))
+                ) : (
+                  <option value="" disabled>No hay horas disponibles</option>
+                )}
+              </select>
+            </label>
+          )}
+        </div> {/* Cierre del nuevo div para selectores */}
+      </div> {/* Cierre del contenedor principal que envuelve título y selectores */}
+
+
+      <div className="w-full h-[85vh] flex bg-white md:flex-row flex-col">
         {/* Renderiza SeatingMap solo si hay un día y una hora seleccionados, y datos en ticketMap */}
         {selectedDay && selectedHour && Object.keys(ticketMap).length > 0 ? (
           <SeatingMap ticketMap={ticketMap} />
@@ -213,10 +223,8 @@ export const SeatingMapContainer = () => {
           </div>
         )}
 
-        <div className="md:absolute md:right-8 md:bottom-4 flex flex-row justify-center mb-8 ml-2">
-          {selectedDay && selectedHour ? (
-            <SpecialCategories extras={allData.extras?.[`${selectedDay} - ${selectedHour}`] || {}} />
-          ) : null}
+        <div className="md:absolute md:right-33 md:bottom-65 flex flex-row justify-center mb-8 ml-2">
+          <SpecialCategories extras={allData.extras?.[`${selectedDay} - ${selectedHour}`] || {}} />
         </div>
       </div>
     </div>

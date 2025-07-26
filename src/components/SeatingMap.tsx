@@ -15,7 +15,7 @@ interface SeatingMapProps {
 
 export const SeatingMap: React.FC<SeatingMapProps> = ({ ticketMap }) => {
   return (
-    <div className="md:w-full  md:h-full flex flex-col items-center justify-center  md:px-4 md:py-6">
+    <div className="md:w-full  md:h-[85vh] flex flex-col items-center justify-center  md:px-4 md:py-2">
 
       <div className="transform scale-78 sm:scale-95  md:scale-100 md:w-auto  flex  flex-row justify-center items-start gap-2 md:gap-4 -mt-5 -mb-20 sm:mt-0 md:mt-0 sm:mb-0 md:mb-0">
        
@@ -49,12 +49,12 @@ export const SeatingMap: React.FC<SeatingMapProps> = ({ ticketMap }) => {
       </div>
 
       {/* Legend */}
-      <div className="md:absolute md:top-[50%] md:left-14">
+      <div className="md:absolute md:top-[30%] md:left-30">
         <Legend ticketMap={ticketMap}/>
       </div>
 
       {/* General Admission Box */}
-      <div className="md:absolute md:left-14 md:top-[10%] ">
+      <div className="md:absolute md:right-35 md:top-[14%] ">
         <div className="mt-8 w-full max-w-4xl">
           <GeneralAdmissionBox ticketMap={ticketMap} />
         </div>

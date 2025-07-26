@@ -27,10 +27,11 @@ export const GeneralAdmissionBox: React.FC<GeneralAdmissionBoxProps> = ({
       <div className="text-center font-semibold text-black mb-2 bebas md:text-2xl text-2xl">
         General Admission
       </div>
-      <div className="text-center text-xl font-bold text-black mb-2 bebas">
-        Total: {total}
+      <div className="text-center text-xl font-bold text-black mb-2 bebas md:text-4xl">
+        {total}
       </div>
-      <div className="flex flex-col gap-1">
+      {/* Contador comentado pero muestra las categorias que son a general admision */}
+      {/* <div className="flex flex-col gap-1">
         {Object.entries(generalData).map(([cat, count]) => (
           <div key={cat} className="flex items-center gap-2">
             <div
@@ -42,7 +43,7 @@ export const GeneralAdmissionBox: React.FC<GeneralAdmissionBoxProps> = ({
             </span>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

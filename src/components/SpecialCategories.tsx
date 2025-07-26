@@ -20,7 +20,7 @@ const groupSizeMap: { [key: string]: number } = {
 export const SpecialCategories: React.FC<SpecialCategoriesProps> = ({ extras }) => {
   return (
     <div className=" flex flex-col gap-2 p-4 bg-white border border-black rounded-lg shadow-md w-62 h-fit mr-2 mt-6">
-      <h2 className="text-center font-bold text-gray-700 mb-2 bebas text-2xl">
+      <h2 className="text-center font-bold text-black mb-2 bebas text-2xl">
         VIP EXPERIENCE
       </h2>
       {specialCategories.map((cat) => (
@@ -30,12 +30,16 @@ export const SpecialCategories: React.FC<SpecialCategoriesProps> = ({ extras }) 
               className="w-4 h-4 rounded-full"
               style={{ backgroundColor: cat.color }}
             ></div>
-            <span className="text-xs font-semibold text-gray-700">{cat.label}</span>
+            <span className="text-xs font-semibold text-black font-outfit">
+              {cat.label}
+              <span className="ml-2 text-gray-500">{extras[cat.name]
+              ? ` ( ${Math.round((extras[cat.name] || 0) / groupSizeMap[cat.name])} )`
+              : "(0)"}</span>
+            </span>
           </div>
+
           <span className="text-xs font-bold text-gray-900">
-            {extras[cat.name]
-              ? ` ${Math.round((extras[cat.name] || 0) / groupSizeMap[cat.name])} packages`
-              : ""}
+            
           </span>
         </div>
       ))}

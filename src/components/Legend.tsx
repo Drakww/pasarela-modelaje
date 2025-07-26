@@ -55,7 +55,8 @@ export const Legend: React.FC<LegendProps> = ({ ticketMap }) => {
   const rowCategoryCounts = calculateRowCategoryCounts();
 
   return (
-    <div className="flex flex-col gap-6 mt-4">
+    <div className="flex flex-col gap-6 mt-4 border border-black p-4 rounded-xl">
+      <h3 className="bebas text-2xl">Ticket Category Guide</h3>
       {Object.entries(categoryColors).map(([cat, color]) => (
         <div key={cat} className="flex items-center gap-2">
           <div
